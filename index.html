@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AyurAahar — Ayurvedic Diet Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button id="forest-sound" class="forest-sound" aria-pressed="false">🌲 Forest sounds: off</button>
+  <header>
+    <h1>🌿 AyurAahar</h1>
+    <p>Personalised Indian home-cooked diet charts, rooted in Ayurveda and explained by science.</p>
+  </header>
+
+  <main>
+    <!-- Step 1: Profile -->
+    <section id="step-profile" class="card">
+      <h2>1. Tell us about you</h2>
+      <form id="profile-form">
+        <div class="grid">
+          <label>Name <input name="name" required placeholder="Your name"></label>
+          <label>Age <input name="age" type="number" min="12" max="100" required></label>
+          <label>Gender
+            <select name="gender"><option value="female">Female</option><option value="male">Male</option></select>
+          </label>
+          <label>Height (cm) <input name="height" type="number" min="100" max="230" required></label>
+          <label>Weight (kg) <input name="weight" type="number" min="25" max="250" required></label>
+          <label>Activity
+            <select name="activity">
+              <option value="1.2">Sedentary (desk job)</option>
+              <option value="1.375" selected>Light (walks 3×/week)</option>
+              <option value="1.55">Moderate (exercise 4–5×/week)</option>
+              <option value="1.725">Very active</option>
+            </select>
+          </label>
+          <label>Goal
+            <select name="goal">
+              <option value="lose">Lose weight</option>
+              <option value="maintain" selected>Stay healthy / maintain</option>
+              <option value="gain">Gain weight / muscle</option>
+            </select>
+          </label>
+          <label>Diet preference
+            <select name="diet">
+              <option value="veg">Vegetarian</option>
+              <option value="egg">Eggetarian</option>
+              <option value="nonveg">Non-vegetarian</option>
+            </select>
+          </label>
+        </div>
+        <fieldset class="conditions">
+          <legend>Any health conditions? <span class="muted">(select all that apply)</span></legend>
+          <div id="condition-list"></div>
+        </fieldset>
+        <button type="submit">Next: Find my Dosha →</button>
+      </form>
+    </section>
+
+    <!-- Step 2: Dosha quiz -->
+    <section id="step-quiz" class="card hidden">
+      <h2>2. Discover your Prakriti (Dosha)</h2>
+      <p class="muted">Choose what describes you best for most of your life, not just today.</p>
+      <form id="quiz-form"></form>
+    </section>
+
+    <!-- Step 3: Result -->
+    <section id="step-result" class="hidden">
+      <div id="summary" class="card"></div>
+      <div id="tabs" class="tabs"></div>
+      <div id="chart"></div>
+      <div id="habits" class="card"></div>
+      <div id="workout" class="card"></div>
+      <div id="doctor" class="card"></div>
+      <p class="disclaimer">ⓘ This app gives general wellness guidance. Nutrition values are approximate (IFCT 2017).
+        Consult a doctor or registered dietitian / Ayurvedic practitioner if you have a medical condition, are pregnant, or take medication.</p>
+      <button id="restart" class="secondary">Start over</button>
+    </section>
+  </main>
+
+  <div id="quote" class="quote" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
